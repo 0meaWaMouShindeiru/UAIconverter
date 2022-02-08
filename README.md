@@ -1,0 +1,1 @@
+euler angles pitch yaw roll, gimbal lock, Quaternions, pydantic

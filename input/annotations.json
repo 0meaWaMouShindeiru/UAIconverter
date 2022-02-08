@@ -1,0 +1,594 @@
+[
+  {
+    "annotationId": "0f224a44-0a67-4188-9d93-274eef4f5491",
+    "frameId": "0000000001",
+    "temporalId": "77197e9a-e3f8-4309-92a3-c8d816cfda22",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "driving",
+      "type": "normal"
+    },
+    "x": 1.6141740617314968,
+    "y": -1.1567630666763957,
+    "z": -6.214051078965763,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 1.7546858722619847,
+    "height": 1.12662733359948,
+    "width": 0.38506336808139396
+  },
+  {
+    "annotationId": "c7b623f7-f89e-4d75-aba1-42d7c70276cc",
+    "frameId": "0000000001",
+    "temporalId": "a68979c5-1c7f-4a1d-b0d0-51b215ec6282",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "77197e9a-e3f8-4309-92a3-c8d816cfda22"
+    },
+    "x": 1.6203931711134456,
+    "y": -0.8208160370426799,
+    "z": -6.08933372191161,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 0.8935028422787278,
+    "height": 1.586688306599624,
+    "width": 0.5008161429394367
+  },
+  {
+    "annotationId": "391f029c-2c51-4cd7-b35f-a2e07873465d",
+    "frameId": "0000000001",
+    "temporalId": "d0a00b4a-77b9-4c8a-9bf2-dcc546667384",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "1b060ca6-721e-4e95-811b-1e92cb6dca4d"
+    },
+    "x": 9.33341004141844,
+    "y": -0.8545834737888558,
+    "z": -3.938180053271773,
+    "roll": 0.10423145340984971,
+    "pitch": -0.6221391990060507,
+    "yaw": -6.591413396541883,
+    "length": 0.8748665102162547,
+    "height": 1.6717189051372876,
+    "width": 0.5893627313181443
+  },
+  {
+    "annotationId": "a120bcf4-f759-4ca8-abbb-aff11999986e",
+    "frameId": "0000000001",
+    "temporalId": "1b060ca6-721e-4e95-811b-1e92cb6dca4d",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 6.262865862842131,
+    "y": -0.8786699901215047,
+    "z": -8.845341478785269,
+    "roll": 0.026286262405724327,
+    "pitch": -0.5055570491439436,
+    "yaw": 133.21200338204682,
+    "length": 1.1959282162119491,
+    "height": 1.655146432567797,
+    "width": 0.585214613596221
+  },
+  {
+    "annotationId": "16f25e13-4e50-43d2-be0f-a32cc97f0aa3",
+    "frameId": "0000000001",
+    "temporalId": "af002198-b1d8-4680-ac1e-66841d53dd58",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": true,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": -8.087492218674878,
+    "y": -1.1226180785181745,
+    "z": 5.274131880722743,
+    "roll": 1.4832833098642695,
+    "pitch": -0.7313382684350009,
+    "yaw": 170.44971945339427,
+    "length": 0.9723564190194485,
+    "height": 1.6189398815276064,
+    "width": 0.6039560284569767
+  },
+  {
+    "annotationId": "c057435b-6ad5-4f47-bc3a-bfa40ddb6bf4",
+    "frameId": "0000000002",
+    "temporalId": "77197e9a-e3f8-4309-92a3-c8d816cfda22",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "driving",
+      "type": "normal"
+    },
+    "x": 1.59998595668228,
+    "y": -1.1567161095006782,
+    "z": -6.447516925603388,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 1.7546858722619847,
+    "height": 1.12662733359948,
+    "width": 0.38506336808139396
+  },
+  {
+    "annotationId": "96aae11f-f8e2-4696-855b-095b18fae981",
+    "frameId": "0000000002",
+    "temporalId": "a68979c5-1c7f-4a1d-b0d0-51b215ec6282",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "77197e9a-e3f8-4309-92a3-c8d816cfda22"
+    },
+    "x": 1.5988038652996106,
+    "y": -0.8209243348551057,
+    "z": -6.157382115709247,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 0.8935028422787278,
+    "height": 1.586688306599624,
+    "width": 0.5008161429394367
+  },
+  {
+    "annotationId": "36387cd0-e9f4-4580-8bc8-1ed4533bb3d1",
+    "frameId": "0000000002",
+    "temporalId": "d0a00b4a-77b9-4c8a-9bf2-dcc546667384",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "1b060ca6-721e-4e95-811b-1e92cb6dca4d"
+    },
+    "x": 9.413401042200228,
+    "y": -0.8562591558383367,
+    "z": -3.6665378486593947,
+    "roll": 0.1042314534098503,
+    "pitch": -0.6221391990060507,
+    "yaw": -6.591413396541883,
+    "length": 0.8748665102162547,
+    "height": 1.6717189051372876,
+    "width": 0.5893627313181443
+  },
+  {
+    "annotationId": "6c42287d-57f6-4639-9915-59834c0d4019",
+    "frameId": "0000000002",
+    "temporalId": "1b060ca6-721e-4e95-811b-1e92cb6dca4d",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 6.262865862842131,
+    "y": -0.8786699901215047,
+    "z": -8.845341478785269,
+    "roll": 0.026286262405724327,
+    "pitch": -0.5055570491439436,
+    "yaw": 133.21200338204682,
+    "length": 1.1959282162119491,
+    "height": 1.655146432567797,
+    "width": 0.585214613596221
+  },
+  {
+    "annotationId": "3760412d-038b-476a-aeb2-1361cba57652",
+    "frameId": "0000000002",
+    "temporalId": "af002198-b1d8-4680-ac1e-66841d53dd58",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": true,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": -8.087492218674878,
+    "y": -1.1226180785181745,
+    "z": 5.274131880722743,
+    "roll": 1.4832833098642695,
+    "pitch": -0.7313382684350009,
+    "yaw": 170.44971945339427,
+    "length": 0.9723564190194485,
+    "height": 1.6189398815276064,
+    "width": 0.6039560284569767
+  },
+  {
+    "annotationId": "283daa36-aeb1-41ed-9dd0-07cf8d34306c",
+    "frameId": "0000000002",
+    "temporalId": "01770ad9-8b8d-4ab4-8536-fbb3acdca857",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "parked",
+      "type": "motorized"
+    },
+    "x": 6.573784261277268,
+    "y": -0.889072823237126,
+    "z": -15.77703180741718,
+    "roll": 0.3435639197243152,
+    "pitch": -2.2654935150592244,
+    "yaw": -106.17215216988262,
+    "length": 2.558594349012596,
+    "height": 1.657728343611517,
+    "width": 0.6835425060340848
+  },
+  {
+    "annotationId": "a0304ed1-dff3-436b-a7bb-042d36715b8d",
+    "frameId": "0000000003",
+    "temporalId": "77197e9a-e3f8-4309-92a3-c8d816cfda22",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "driving",
+      "type": "normal"
+    },
+    "x": 1.59998595668228,
+    "y": -1.1567161095006782,
+    "z": -6.680989775462219,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 1.7546858722619847,
+    "height": 1.12662733359948,
+    "width": 0.38506336808139396
+  },
+  {
+    "annotationId": "da5a9015-21a8-4029-84b7-ac5139959967",
+    "frameId": "0000000003",
+    "temporalId": "a68979c5-1c7f-4a1d-b0d0-51b215ec6282",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "77197e9a-e3f8-4309-92a3-c8d816cfda22"
+    },
+    "x": 1.5988038652996106,
+    "y": -0.8209243348551057,
+    "z": -6.157382115709247,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 0.8935028422787278,
+    "height": 1.586688306599624,
+    "width": 0.5008161429394367
+  },
+  {
+    "annotationId": "7eb1fcdd-1188-4b3d-a33a-45dade502e20",
+    "frameId": "0000000003",
+    "temporalId": "d0a00b4a-77b9-4c8a-9bf2-dcc546667384",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "1b060ca6-721e-4e95-811b-1e92cb6dca4d"
+    },
+    "x": 9.188782595363914,
+    "y": -0.8527222617416583,
+    "z": -4.04667522437615,
+    "roll": 0.10423145340985052,
+    "pitch": -0.6221391990060506,
+    "yaw": -6.591413396541883,
+    "length": 0.8748665102162547,
+    "height": 1.6717189051372876,
+    "width": 0.5893627313181443
+  },
+  {
+    "annotationId": "ad414a8c-f8d1-4f70-873c-cd7a4b9d877c",
+    "frameId": "0000000003",
+    "temporalId": "1b060ca6-721e-4e95-811b-1e92cb6dca4d",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 6.262865862842131,
+    "y": -0.8786699901215047,
+    "z": -8.845341478785269,
+    "roll": 0.026286262405724327,
+    "pitch": -0.5055570491439436,
+    "yaw": 133.21200338204682,
+    "length": 1.1959282162119491,
+    "height": 1.655146432567797,
+    "width": 0.585214613596221
+  },
+  {
+    "annotationId": "fc897771-fd7a-4580-9bf2-503e5b57ad49",
+    "frameId": "0000000003",
+    "temporalId": "af002198-b1d8-4680-ac1e-66841d53dd58",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": true,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": -8.087492218674878,
+    "y": -1.1226180785181745,
+    "z": 5.274131880722743,
+    "roll": 1.4832833098642695,
+    "pitch": -0.7313382684350009,
+    "yaw": 170.44971945339427,
+    "length": 0.9723564190194485,
+    "height": 1.6189398815276064,
+    "width": 0.6039560284569767
+  },
+  {
+    "annotationId": "f722fe4e-6d5a-4b88-b517-fb18d6b2bd57",
+    "frameId": "0000000003",
+    "temporalId": "01770ad9-8b8d-4ab4-8536-fbb3acdca857",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "parked",
+      "type": "motorized"
+    },
+    "x": 6.573784261277268,
+    "y": -0.889072823237126,
+    "z": -15.77703180741718,
+    "roll": 0.3435639197243152,
+    "pitch": -2.2654935150592244,
+    "yaw": -106.17215216988262,
+    "length": 2.558594349012596,
+    "height": 1.657728343611517,
+    "width": 0.6835425060340848
+  },
+  {
+    "annotationId": "00c0bacc-e7f7-44ce-b9bd-8876a45bcd61",
+    "frameId": "0000000003",
+    "temporalId": "8ffcb2e9-77da-4d0d-b079-54f5370a7b83",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 8.17247051283217,
+    "y": -1.1687122995530101,
+    "z": -14.42598873693135,
+    "roll": 0.897168696033178,
+    "pitch": 0.09216206919185833,
+    "yaw": -53.194704508368005,
+    "length": 1.0349641669895602,
+    "height": 1.161390020137003,
+    "width": 0.32183540765554275
+  },
+  {
+    "annotationId": "e6f9187c-dab3-42fc-85db-d326de53c967",
+    "frameId": "0000000004",
+    "temporalId": "77197e9a-e3f8-4309-92a3-c8d816cfda22",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "driving",
+      "type": "normal"
+    },
+    "x": 1.59998595668228,
+    "y": -1.1567161095006782,
+    "z": -6.914406599551402,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 1.7546858722619847,
+    "height": 1.12662733359948,
+    "width": 0.38506336808139396
+  },
+  {
+    "annotationId": "c864d460-c11b-4fc6-acb4-18bac1bc3358",
+    "frameId": "0000000004",
+    "temporalId": "a68979c5-1c7f-4a1d-b0d0-51b215ec6282",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "77197e9a-e3f8-4309-92a3-c8d816cfda22"
+    },
+    "x": 1.5988038652996106,
+    "y": -0.8209243348551057,
+    "z": -6.157382115709247,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 0.8935028422787278,
+    "height": 1.586688306599624,
+    "width": 0.5008161429394367
+  },
+  {
+    "annotationId": "866b3b77-bca7-4f34-add3-0fc776311aed",
+    "frameId": "0000000004",
+    "temporalId": "d0a00b4a-77b9-4c8a-9bf2-dcc546667384",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "1b060ca6-721e-4e95-811b-1e92cb6dca4d"
+    },
+    "x": 8.964218049533088,
+    "y": -0.8527222617416583,
+    "z": -4.426721379683082,
+    "roll": 0.10423145340985052,
+    "pitch": -0.6221391990060506,
+    "yaw": -6.591413396541883,
+    "length": 0.8748665102162547,
+    "height": 1.6717189051372876,
+    "width": 0.5893627313181443
+  },
+  {
+    "annotationId": "ef788bdc-61cc-49d8-884f-9a4d6e5030aa",
+    "frameId": "0000000004",
+    "temporalId": "1b060ca6-721e-4e95-811b-1e92cb6dca4d",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 6.262865862842131,
+    "y": -0.8786699901215047,
+    "z": -8.845341478785269,
+    "roll": 0.026286262405724327,
+    "pitch": -0.5055570491439436,
+    "yaw": 133.21200338204682,
+    "length": 1.1959282162119491,
+    "height": 1.655146432567797,
+    "width": 0.585214613596221
+  },
+  {
+    "annotationId": "717a5832-f4ad-4fc5-9dca-85045f859274",
+    "frameId": "0000000004",
+    "temporalId": "af002198-b1d8-4680-ac1e-66841d53dd58",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": true,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": -8.087492218674878,
+    "y": -1.1226180785181745,
+    "z": 5.274131880722743,
+    "roll": 1.4832833098642695,
+    "pitch": -0.7313382684350009,
+    "yaw": 170.44971945339427,
+    "length": 0.9723564190194485,
+    "height": 1.6189398815276064,
+    "width": 0.6039560284569767
+  },
+  {
+    "annotationId": "19ca8143-ff72-45e3-96c7-940e70e4550b",
+    "frameId": "0000000004",
+    "temporalId": "01770ad9-8b8d-4ab4-8536-fbb3acdca857",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "parked",
+      "type": "motorized"
+    },
+    "x": 6.573784261277268,
+    "y": -0.889072823237126,
+    "z": -15.77703180741718,
+    "roll": 0.3435639197243152,
+    "pitch": -2.2654935150592244,
+    "yaw": -106.17215216988262,
+    "length": 2.558594349012596,
+    "height": 1.657728343611517,
+    "width": 0.6835425060340848
+  },
+  {
+    "annotationId": "ce514a96-a7c8-4ff7-a006-bbf29a69dfa1",
+    "frameId": "0000000004",
+    "temporalId": "8ffcb2e9-77da-4d0d-b079-54f5370a7b83",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 8.17247051283217,
+    "y": -1.1687122995530101,
+    "z": -14.42598873693135,
+    "roll": 0.897168696033178,
+    "pitch": 0.09216206919185833,
+    "yaw": -53.194704508368005,
+    "length": 1.0349641669895602,
+    "height": 1.161390020137003,
+    "width": 0.32183540765554275
+  },
+  {
+    "annotationId": "c7099cd8-2b58-4bd8-a2d5-4343a27ca3b1",
+    "frameId": "0000000000",
+    "temporalId": "77197e9a-e3f8-4309-92a3-c8d816cfda22",
+    "label": "BICYCLE",
+    "attributes": {
+      "status": "driving",
+      "type": "normal"
+    },
+    "x": 1.6100950242939567,
+    "y": -1.1572560424666847,
+    "z": -6.065669226684873,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 1.7546858722619847,
+    "height": 1.12662733359948,
+    "width": 0.38506336808139396
+  },
+  {
+    "annotationId": "2032f5ba-3aaf-41bf-b529-fc41bb5fdb11",
+    "frameId": "0000000000",
+    "temporalId": "a68979c5-1c7f-4a1d-b0d0-51b215ec6282",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "77197e9a-e3f8-4309-92a3-c8d816cfda22"
+    },
+    "x": 1.6401051459869471,
+    "y": -0.8207171564313347,
+    "z": -6.027202579748551,
+    "roll": -0.8291255053784349,
+    "pitch": -0.08691569630265704,
+    "yaw": 107.60235907431353,
+    "length": 0.8935028422787278,
+    "height": 1.586688306599624,
+    "width": 0.5008161429394367
+  },
+  {
+    "annotationId": "daf26714-5c88-403d-9354-5589739e5abf",
+    "frameId": "0000000000",
+    "temporalId": "1b060ca6-721e-4e95-811b-1e92cb6dca4d",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": 6.262865862842131,
+    "y": -0.8786699901215047,
+    "z": -8.845341478785269,
+    "roll": 0.026286262405724327,
+    "pitch": -0.5055570491439436,
+    "yaw": 133.21200338204682,
+    "length": 1.1959282162119491,
+    "height": 1.655146432567797,
+    "width": 0.585214613596221
+  },
+  {
+    "annotationId": "632086f3-9fd0-4875-bce7-822b36f82f9a",
+    "frameId": "0000000000",
+    "temporalId": "af002198-b1d8-4680-ac1e-66841d53dd58",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": true,
+      "age": "adult",
+      "rides_on_bicycle": ""
+    },
+    "x": -8.06028442082323,
+    "y": -1.1223605879773242,
+    "z": 5.275285233112016,
+    "roll": 1.4832833098642617,
+    "pitch": -0.7313382684349989,
+    "yaw": 170.44971945339427,
+    "length": 0.9723564190194485,
+    "height": 1.6189398815276064,
+    "width": 0.6039560284569767
+  },
+  {
+    "annotationId": "d76b6e67-0ac8-40ba-acad-04175fe4697f",
+    "frameId": "0000000000",
+    "temporalId": "d0a00b4a-77b9-4c8a-9bf2-dcc546667384",
+    "label": "HUMAN",
+    "attributes": {
+      "wears_helmet": false,
+      "age": "adult",
+      "rides_on_bicycle": "1b060ca6-721e-4e95-811b-1e92cb6dca4d"
+    },
+    "x": 9.188782595363914,
+    "y": -0.8527222617416583,
+    "z": -4.04667522437615,
+    "roll": 0.10423145340985052,
+    "pitch": -0.6221391990060506,
+    "yaw": -6.591413396541883,
+    "length": 0.8748665102162547,
+    "height": 1.6717189051372876,
+    "width": 0.5893627313181443
+  }
+]
