@@ -6,6 +6,12 @@ class BicycleAttributes(BaseModel):
     status: Literal['parked', 'stopped', 'moving']
     type: Literal['normal', 'motorized']
 
+    # assumption that 'driving' and 'moving' are synonyms
+    @validator('status', pre=True)
+    def convert_driving_to_moving(cls, value):
+        if value == 'driving':
+            return 'moving'
+
 
 class HumanAttributes(BaseModel):
     wears_helmet: bool
