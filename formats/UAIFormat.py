@@ -11,6 +11,7 @@ class BicycleAttributes(BaseModel):
     def convert_driving_to_moving(cls, value):
         if value == 'driving':
             return 'moving'
+        return value
 
 
 class HumanAttributes(BaseModel):
