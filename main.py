@@ -1,163 +1,65 @@
 import json
 import pydantic
 from formats.UAIFormat import BaseUAIFormat
-from modules.OrientationCoverter import convert_Euler_to_quaternion
-from modules.PositionConverter import calculate_center_position_from_dimensions
+from modules.UAItoSpecificationId import convert_data
+from modules.ErrorParser import print_errors
 from modules.UUIDtoInt import UUID_to_int
 import pandas as pd
-from os import path, mkdir
+from os import path, mkdir, listdir
 import numpy as np
 
 IDENTIFIER = 'label'
 OBJECT_UUID = 'temporalId'
 FRAME_ID_COLUMN = 'frameId'
 
-file = 'input/annotations.json'
 
-with open(file, 'r') as file_handler:
-    loaded_data = json.load(file_handler)
-
-valid_data = []
-invalid_data = []
+def np_encoder(obj):
+    if isinstance(obj, np.generic):
+        return obj.item()
 
 
-age_converter = {
-    'adult': 0,
-    'child': 1
-}
+input_folder = 'input'
+files = [file for file in listdir(input_folder) if file.endswith('.json')]
 
-bicycle_type_converter = {
-    'normal': 0,
-    'motorized': 1
-}
+for file_name in files:
+    file_path = path.join(input_folder, file_name)
 
-bicycle_status_converter = {
-    'parked': 2,
-    'stopped': 1,
-    'moving': 0
-}
+    with open(file_path, 'r') as file_handler:
+        loaded_data = json.load(file_handler)
 
+    valid_data = []
+    invalid_data = []
 
-for item in loaded_data:
-    try:
-        valid_data.append(BaseUAIFormat(**item))
-    except pydantic.ValidationError as VE:
-        invalid_data.append((VE, item))
+    for item in loaded_data:
+        try:
+            valid_data.append(BaseUAIFormat(**item))
+        except pydantic.ValidationError as VE:
+            invalid_data.append((VE, item))
 
-data = pd.DataFrame([item.dict() for item in valid_data])
+    print_errors(invalid_data)
 
-unique_ids = {
-    label: UUID_to_int(
-        groupedData.sort_values(FRAME_ID_COLUMN)[OBJECT_UUID].unique(),
-        label
-    ) for label, groupedData in data.groupby(IDENTIFIER)
-}
-def convert_common_data(row):
-    return {
-        'POSITION': calculate_center_position_from_dimensions(
-            row['x'], row['y'], row['z'], row['height'], row['length'], row['width']
-        ),
-        'ORIENTATION': convert_Euler_to_quaternion(
-            row['yaw'], row['pitch'], row['roll']
-        ),
-        'SIZE': (row['width'], row['length'], row['height'])
+    data = pd.DataFrame([item.dict() for item in valid_data])
+
+    unique_ids = {
+        label: UUID_to_int(
+            groupedData.sort_values(FRAME_ID_COLUMN)[OBJECT_UUID].unique(),
+            label
+        ) for label, groupedData in data.groupby(IDENTIFIER)
     }
 
-
-def expand_attributes(data: pd.DataFrame, label: str):
-    expanded_data = data[data['label'] == label]
-    expanded_data = pd.concat([
-        expanded_data,
-        expanded_data['attributes'].apply(pd.Series)
-    ], axis=1)
-
-    return expanded_data
-
-
-def convert_data(data: pd.DataFrame, label: str):
-    relevant_data = expand_attributes(data, label)
-
-    ridden_bicycles = expand_attributes(data, 'HUMAN')
-    # find humans that are driving bicycle and their relation
-    ridden_bicycles = ridden_bicycles[~ridden_bicycles['rides_on_bicycle'].isin([''])][[OBJECT_UUID, 'rides_on_bicycle']]
-    ridden_bicycles.rename(columns={
-            OBJECT_UUID: 'human_id',
-            'rides_on_bicycle': 'bicycle_id'
-        }, inplace=True)
-
-    if not relevant_data.shape[0]:
-        return []
-
-    objects = []
-
-    for _, row in relevant_data.iterrows():
-        common_data = convert_common_data(row)
-        specific_data = globals()['convert_{}'.format(label.lower())](row, ridden_bicycles)
-        objects.append({
-            **common_data,
-            **specific_data
-        })
-
-    return objects
-
-
-def convert_bicycle(row, ridden_bicycles: pd.DataFrame):
-    status = bicycle_status_converter[row['status']]
-    bicycle_uuid = row[OBJECT_UUID]
-
-    rider = None
-
-    if bicycle_uuid in ridden_bicycles['bicycle_id'].tolist():
-        temp_df = ridden_bicycles.set_index('bicycle_id')
-        human_uuid = temp_df.loc[bicycle_uuid]['human_id']
-        rider = unique_ids['HUMAN'].loc[human_uuid]
-
-        if status == 2:
-            # Assumption that, if bike, which is labeled as parked, has a driver, is actually stopped
-            # This should be discussed
-            status = 1
-
-    return {
-        'BICYCLE_ID': unique_ids['BICYCLE'].loc[bicycle_uuid],
-        'TYPE': bicycle_type_converter[row['type']],
-        'STATUS': status,
-        'RIDER': rider
+    all_data = {
+        'FRAMES': [{
+            'FRAME_ID': label,
+            'BICYCLES': convert_data(groupedDataByFrameId, 'BICYCLE', unique_ids),
+            'HUMANS': convert_data(groupedDataByFrameId, 'HUMAN', unique_ids),
+              } for label, groupedDataByFrameId in data.groupby(FRAME_ID_COLUMN)
+        ]
     }
 
+    if not path.exists('output'):
+        mkdir('output')
 
-def convert_human(row, ridden_bicycles):
-    human_uuid = row[OBJECT_UUID]
-    # ridden_bicycles = ridden_bicycles.set_index('human_id')
-    helmet = None
-    if human_uuid in ridden_bicycles['human_id'].tolist():
-        helmet = 1 if row['wears_helmet'] else 0
+    output_file = 'output/{}_SID_format.json'.format(file_name)
 
-    return {
-        'HUMAN_ID': unique_ids['HUMAN'].loc[human_uuid],
-        'AGE': age_converter[row['age']],
-        'WEARS_HELMET': helmet
-    }
-
-
-all_data = {
-    'FRAMES': [{
-        'FRAME_ID': label,
-        'BICYCLES': convert_data(groupedDataByFrameId, 'BICYCLE'),
-        'HUMANS': convert_data(groupedDataByFrameId, 'HUMAN'),
-          } for label, groupedDataByFrameId in data.groupby(FRAME_ID_COLUMN)
-    ]
-}
-
-if not path.exists('output'):
-    mkdir('output')
-
-output_file = 'output/file_name.json'
-
-
-def np_encoder(object):
-    if isinstance(object, np.generic):
-        return object.item()
-
-
-with open(output_file, 'w') as file_handler:
-    json.dump(all_data, file_handler, default=np_encoder)
+    with open(output_file, 'w') as file_handler:
+        json.dump(all_data, file_handler, default=np_encoder)
