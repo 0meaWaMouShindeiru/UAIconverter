@@ -47,7 +47,7 @@ for file_name in files:
         ) for label, groupedData in data.groupby(IDENTIFIER)
     }
 
-    all_data = {
+    formated_data = {
         'FRAMES': [{
             'FRAME_ID': label,
             'BICYCLES': convert_data(groupedDataByFrameId, 'BICYCLE', unique_ids),
@@ -62,4 +62,4 @@ for file_name in files:
     output_file = 'output/{}_SID_format.json'.format(file_name.strip('.json'))
 
     with open(output_file, 'w') as file_handler:
-        json.dump(all_data, file_handler, default=np_encoder)
+        json.dump(formated_data, file_handler, default=np_encoder)
