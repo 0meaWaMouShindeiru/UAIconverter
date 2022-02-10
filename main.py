@@ -22,6 +22,7 @@ def np_encoder(obj):
 
 
 input_folder = 'input'
+output_folder = 'output'
 files = [file for file in listdir(input_folder) if file.endswith('.json')]
 
 for file_name in files:
@@ -64,8 +65,9 @@ for file_name in files:
         ]
     }
 
-    if not path.exists('output'):
-        mkdir('output')
+
+    if not path.exists(output_folder):
+        mkdir(output_folder)
 
     # validate output data format
     try:
@@ -75,7 +77,7 @@ for file_name in files:
 
     # improvement: if there is something wrong with data validation, data should not be written to file
 
-    output_file = 'output/{}_SID_format.json'.format(file_name.strip('.json'))
+    output_file = '{}/{}_SID_format.json'.format(output_folder, file_name.strip('.json'))
 
     with open(output_file, 'w') as file_handler:
         json.dump(formatted_data, file_handler, default=np_encoder)
