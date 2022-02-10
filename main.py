@@ -5,7 +5,8 @@ from modules.OrientationCoverter import convert_Euler_to_quaternion
 from modules.PositionConverter import calculate_center_position_from_dimensions
 from modules.UUIDtoInt import UUID_to_int
 import pandas as pd
-from os import path
+from os import path, mkdir
+import numpy as np
 
 IDENTIFIER = 'label'
 OBJECT_UUID = 'temporalId'
@@ -147,3 +148,16 @@ all_data = {
     ]
 }
 
+if not path.exists('output'):
+    mkdir('output')
+
+output_file = 'output/file_name.json'
+
+
+def np_encoder(object):
+    if isinstance(object, np.generic):
+        return object.item()
+
+
+with open(output_file, 'w') as file_handler:
+    json.dump(all_data, file_handler, default=np_encoder)
