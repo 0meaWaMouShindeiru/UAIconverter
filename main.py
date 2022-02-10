@@ -1,6 +1,7 @@
 import json
 import pydantic
 from formats.UAIFormat import BaseUAIFormat
+from formats.SpecificationIdFormat import Frames
 from modules.UAItoSpecificationId import convert_data
 from modules.ErrorParser import print_errors
 from modules.UUIDtoInt import UUID_to_int
@@ -58,6 +59,11 @@ for file_name in files:
 
     if not path.exists('output'):
         mkdir('output')
+
+    try:
+        d = Frames(**formated_data)
+    except pydantic.ValidationError as VE:
+        print_errors([VE, item])
 
     output_file = 'output/{}_SID_format.json'.format(file_name.strip('.json'))
 
