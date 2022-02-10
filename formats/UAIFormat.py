@@ -6,7 +6,7 @@ class BicycleAttributes(BaseModel):
     status: Literal['parked', 'stopped', 'moving']
     type: Literal['normal', 'motorized']
 
-    # assumption that 'driving' and 'moving' are synonyms
+    # assumption that 'driving' and 'moving' are synonyms, this would be discussed
     @validator('status', pre=True)
     def convert_driving_to_moving(cls, value):
         if value == 'driving':
@@ -36,6 +36,7 @@ class BaseUAIFormat(BaseModel):
     height: float
     width: float
 
+    # just an example of additional validation
     @validator('length', 'height', 'width')
     def must_be_greater_than_zero(cls, value):
         if value > 0:

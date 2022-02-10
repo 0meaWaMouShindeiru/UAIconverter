@@ -14,6 +14,8 @@ OBJECT_UUID = 'temporalId'
 FRAME_ID_COLUMN = 'frameId'
 
 
+# this is helper function to covert int64 and float64 to int and float because
+# json has problems with numpy's int64 and float64
 def np_encoder(obj):
     if isinstance(obj, np.generic):
         return obj.item()
@@ -39,8 +41,13 @@ for file_name in files:
 
     print_errors(invalid_data)
 
+    # potential check if there is any invalid data, in that case, program should not continue, discussion
+
     data = pd.DataFrame([item.dict() for item in valid_data])
 
+    # this is a dict containing unique values of each label, ordered by frame, as requested
+    # in specification that numbering should be consecutive and objects which first appear
+    # on earlier  frames should have smaller ids
     unique_ids = {
         label: UUID_to_int(
             groupedData.sort_values(FRAME_ID_COLUMN)[OBJECT_UUID].unique(),
@@ -48,7 +55,7 @@ for file_name in files:
         ) for label, groupedData in data.groupby(IDENTIFIER)
     }
 
-    formated_data = {
+    formatted_data = {
         'FRAMES': [{
             'FRAME_ID': label,
             'BICYCLES': convert_data(groupedDataByFrameId, 'BICYCLE', unique_ids),
@@ -60,12 +67,15 @@ for file_name in files:
     if not path.exists('output'):
         mkdir('output')
 
+    # validate output data format
     try:
-        d = Frames(**formated_data)
+        d = Frames(**formatted_data)
     except pydantic.ValidationError as VE:
-        print_errors([VE, item])
+        print(VE)
+
+    # improvement: if there is something wrong with data validation, data should not be written to file
 
     output_file = 'output/{}_SID_format.json'.format(file_name.strip('.json'))
 
     with open(output_file, 'w') as file_handler:
-        json.dump(formated_data, file_handler, default=np_encoder)
+        json.dump(formatted_data, file_handler, default=np_encoder)
