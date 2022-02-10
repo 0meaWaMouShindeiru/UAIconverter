@@ -7,7 +7,7 @@ list of required libraries are in `requirements.txt`
 By running the [`main.py`](https://github.com/0meaWaMouShindeiru/UAIconverter/blob/master/main.py), script will load all `.json` files in `input` folder, convert it to 
 specified format and save it to output folder while appending `_SID_format` to the original name. 
 I consider `SID` as Specification ID which would be specific to requested data format specification. In that case, we could recognize applied
-format just by reading its name.
+format just by reading file name.
 
 ## Libraries used
 I have chosen `pandas` for data manipulation because I am most familiar with this library.
@@ -22,7 +22,7 @@ https://www.weizmann.ac.il/sci-tea/benari/sites/sci-tea.benari/files/uploads/sof
 
 
 While I was trying to validate data, I had a feeling that a lot of `if-else` is wrong approach,
-so I stumbled upon `pydantic` library for data validation. This is my first time using this library, and I think there is much more to learn tp properly apply this library. 
+so I stumbled upon `pydantic` library for data validation. This is my first time using this library, and I think there is much more to learn to properly apply this library. 
 For my purposes, basic usage as validator was good enough.
 
 While I was doing the conversion I realized the importance of `type-safety` and how it is easy to lose some data properties.
