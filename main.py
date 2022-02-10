@@ -59,7 +59,7 @@ for file_name in files:
     if not path.exists('output'):
         mkdir('output')
 
-    output_file = 'output/{}_SID_format.json'.format(file_name)
+    output_file = 'output/{}_SID_format.json'.format(file_name.strip('.json'))
 
     with open(output_file, 'w') as file_handler:
         json.dump(all_data, file_handler, default=np_encoder)
