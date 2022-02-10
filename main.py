@@ -79,7 +79,7 @@ for file_name in files:
 
     # improvement: if there is something wrong with data validation, data should not be written to file
 
-    output_file = '{}/{}_SID_format.json'.format(output_folder, file_name.strip('.json'))
+    output_file = '{}/{}_SID_format.json'.format(output_folder, path.splitext(file_name)[0])
 
     with open(output_file, 'w') as file_handler:
         json.dump(formatted_data, file_handler, default=np_encoder)
