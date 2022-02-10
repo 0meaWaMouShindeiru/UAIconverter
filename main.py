@@ -8,10 +8,12 @@ from modules.UUIDtoInt import UUID_to_int
 import pandas as pd
 from os import path, mkdir, listdir
 import numpy as np
+from config.config import UAIFormat
 
-IDENTIFIER = 'label'
-OBJECT_UUID = 'temporalId'
-FRAME_ID_COLUMN = 'frameId'
+# discussible
+IDENTIFIER = UAIFormat.LABEL.value
+OBJECT_UUID = UAIFormat.OBJECT_ID.value
+FRAME_ID_COLUMN = UAIFormat.FRAME_ID.value
 
 
 # this is helper function to covert int64 and float64 to int and float because

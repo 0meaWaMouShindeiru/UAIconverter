@@ -1,7 +1,10 @@
 import pandas as pd
+from config.config import UAIFormat
 
 
-OBJECT_UUID = 'temporalId'
+OBJECT_UUID = UAIFormat.OBJECT_ID.value
+STATUS = UAIFormat.STATUS.value
+TYPE = UAIFormat.TYPE.value
 
 bicycle_type_converter = {
     'normal': 0,
@@ -16,7 +19,7 @@ bicycle_status_converter = {
 
 
 def convert_bicycle(row, ridden_bicycles: pd.DataFrame, unique_ids):
-    status = bicycle_status_converter[row['status']]
+    status = bicycle_status_converter[row[STATUS]]
     bicycle_uuid = row[OBJECT_UUID]
 
     rider = None
@@ -33,7 +36,7 @@ def convert_bicycle(row, ridden_bicycles: pd.DataFrame, unique_ids):
 
     return {
         'BICYCLE_ID': unique_ids['BICYCLE'].loc[bicycle_uuid],
-        'TYPE': bicycle_type_converter[row['type']],
+        'TYPE': bicycle_type_converter[row[TYPE]],
         'STATUS': status,
         'RIDER': rider
     }

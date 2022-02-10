@@ -1,30 +1,42 @@
 import pandas as pd
-
+from config.config import UAIFormat
 from modules.OrientationCoverter import convert_Euler_to_quaternion
 from modules.PositionConverter import calculate_center_position_from_dimensions
 from modules.BicycleConverter import convert_bicycle
 from modules.HumanConverter import convert_human
 
-OBJECT_UUID = 'temporalId'
+OBJECT_UUID = UAIFormat.OBJECT_ID.value
+X = UAIFormat.X.value
+Y = UAIFormat.Y.value
+Z = UAIFormat.Z.value
+HEIGHT = UAIFormat.HEIGHT.value
+LENGTH = UAIFormat.LENGTH.value
+WIDTH = UAIFormat.WIDTH.value
+LABEL = UAIFormat.LABEL.value
+RIDES_ON_BICYCLE = UAIFormat.RIDES_ON_BICYCLE.value
+YAW = UAIFormat.YAW.value
+PITCH = UAIFormat.PITCH.value
+ROLL = UAIFormat.ROLL.value
+ATTRIBUTES = UAIFormat.ATTRIBUTES.value
 
 
 def convert_common_data(row):
     return {
         'POSITION': calculate_center_position_from_dimensions(
-            row['x'], row['y'], row['z'], row['height'], row['length'], row['width']
+            row[X], row[Y], row[Z], row[HEIGHT], row[LENGTH], row[WIDTH]
         ),
         'ORIENTATION': convert_Euler_to_quaternion(
-            row['yaw'], row['pitch'], row['roll']
+            row[YAW], row[PITCH], row[ROLL]
         ),
-        'SIZE': (row['width'], row['length'], row['height'])
+        'SIZE': (row[WIDTH], row[LENGTH], row[HEIGHT])
     }
 
 
 def expand_attributes(data: pd.DataFrame, label: str):
-    expanded_data = data[data['label'] == label]
+    expanded_data = data[data[LABEL] == label]
     expanded_data = pd.concat([
         expanded_data,
-        expanded_data['attributes'].apply(pd.Series)
+        expanded_data[ATTRIBUTES].apply(pd.Series)
     ], axis=1)
 
     return expanded_data
@@ -35,10 +47,10 @@ def convert_data(data: pd.DataFrame, label: str, unique_ids):
 
     ridden_bicycles = expand_attributes(data, 'HUMAN')
     # find humans that are driving bicycle and their relation
-    ridden_bicycles = ridden_bicycles[~ridden_bicycles['rides_on_bicycle'].isin([''])][[OBJECT_UUID, 'rides_on_bicycle']]
+    ridden_bicycles = ridden_bicycles[~ridden_bicycles[RIDES_ON_BICYCLE].isin([''])][[OBJECT_UUID, RIDES_ON_BICYCLE]]
     ridden_bicycles.rename(columns={
             OBJECT_UUID: 'human_id',
-            'rides_on_bicycle': 'bicycle_id'
+            RIDES_ON_BICYCLE: 'bicycle_id'
         }, inplace=True)
 
     if not relevant_data.shape[0]:
